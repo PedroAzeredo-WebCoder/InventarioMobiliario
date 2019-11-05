@@ -1,0 +1,136 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Acme|Cinzel|Play|Roboto&display=swap');
+/* Geral */
+.back{
+    background-image: linear-gradient( to bottom, #1664ac 0%,#5ab3e2 50%,#FFFFFF 100%);
+    background-size: 100% 190%;
+    background-repeat: no-repeat;
+  }
+
+.cd{
+    width: 65%;
+    background-color:rgba(252, 245, 245, 1);
+    border-radius: 10px;
+    box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    margin-bottom:4%;
+  }
+
+hr{
+    color: rgba(20, 20, 20, 0.25);
+}
+
+.cadastrar{
+    width: 50%;
+    background-color: green;
+    border: none;
+    border-radius: 0px 0px 3px 3px;
+    color: white;
+    font-size: 16px;
+    line-height: 250%;
+}
+.limpar{
+    width: 50%;
+    background-color: red;
+    border: none;
+    border-radius: 0px 0px 3px 3px;
+    color: white;
+    font-size: 16px;
+    line-height: 250%;
+}
+.alterar{
+    width: 100%;
+    background-color: green;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+    color: white;
+    font-size: 16px;
+    line-height: 250%;
+}
+.box{
+    float: right;
+    margin-right: 10%;
+    margin-top: 1%;
+    width: 55%;
+}
+label{
+    font-family: Cinzel;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+    margin: 10px;
+    margin-left: 4%;
+}
+#tlb{
+    margin-left: 35%;
+    margin-top: -5%;
+}
+#title{
+    margin-bottom: 4%;
+    text-align: center;
+    font-family: Play;
+
+}
+.btns{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+}
+.thad{
+    background-color:#48d965;
+    font-size: 14px;
+    text-align: center;
+    
+}
+.inf{
+    text-align: center;
+
+}
+.erro{
+    color: red;
+}
+
+#tam{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inform{
+  text-align:center;
+
+}
+
+@keyframes animate
+{
+    0%
+    {
+        box-shadow: 0000 rgba(255,109,74,.7);
+    }
+    40%
+    {
+        box-shadow: 0000 rgba(255,109,74,.7);
+    }
+    80%
+    {
+        box-shadow: 0000 rgba(255,109,74,.7);
+    }
+    100%
+    {
+        box-shadow: 0000 rgba(255,109,74,.7);
+    }
+
+}
+
+@media screen and (max-width: 720px)
+{
+  .cd{
+    width:90%;
+  }
+    label{
+  	font-size:8px;
+  }
+}
