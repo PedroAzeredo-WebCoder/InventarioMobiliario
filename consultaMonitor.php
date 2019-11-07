@@ -15,13 +15,13 @@ ob_start();
     <link rel="shortcut icon" href="img/icon.ico" type="img/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 
-  	<!--<script src="vendor/components/jquery/jquery.min.js"></script>
+  	<script src="vendor/components/jquery/jquery.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
-  	<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>-->
+  	<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Consulta de Monitores</title>
   </head><!--Fecha Cabeçalho-->
     <style>
@@ -54,13 +54,10 @@ ob_start();
                         <h1 class="jumbotron" id="title" style="background-color: rgba(62, 206, 214, 0.01)">Consulta de Monitores</h1>
 
             <?php
-
                 include 'dao/monitordao.class.php';
                 include 'modelo/monitor.class.php';
-
                 $monitorDAO = new MonitorDAO();
                 $monitor = $monitorDAO->buscarMonitor();
-
                 if(count($monitor) == 0) {
                   echo "<h2>Não há equipamentos cadastrados...</h2>";
                   return;
@@ -95,18 +92,14 @@ ob_start();
                 if(isset($_POST['filtrar'])){
                   $pesquisa = $_POST['txtfiltro'];
                   $filtro = $_POST['selfiltro'];
-
                   if(!empty($pesquisa)){
                     $monitorDAO = new MonitorDAO();
                     $monitor = $monitorDAO->filtrarMonitor($pesquisa,$filtro);
-
                     if(count($monitor) == 0){
                       echo "<h3>Sua pesquisa não retornou nenhum monitor!</h3>";
                       return;
                     }//fecha if
-
                   }//fecha if
-
                 }//fecha if
             ?>
 
@@ -129,7 +122,6 @@ ob_start();
                       echo "<th>Excluir</th>";
                     echo "</tr>";
                   echo "</thead>";
-
                   echo "<tfoot class='thad'>";
                   echo "<tr>";
                       echo "<th>Código</th>";
@@ -147,7 +139,6 @@ ob_start();
                   echo "</tr>";
                   echo "</tfoot>";
                   echo "<tbody>";
-
                   foreach($monitor as $monitor) {
                     echo "<tr>";
                       echo "<td class='inform' style='font-weight:bold;'>$monitor->idMonitor</td>";
@@ -172,47 +163,39 @@ ob_start();
               <div style="margin:1%;">
                 <button class="btn btn-primary"><a style="color:#ffffff;text-decoration:none;" href="cadastroMonitor.php"><strong>Novo cadastro</strong></a></button>
               </div>
-
-                  <!--Modal-->
-                  <?php
-                    if(isset($_GET['id'])) {
-                      ?>
-                      <div>
-                          <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="TituloModalCentralizado">Digite a senha de exclusão</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form name="cad" method="post" action="consultaMonitor.php">
-                              <div class="modal-body">
-                                  <input type="password" class="form-control" name="senha" style="width:60%;margin-left:auto;margin-right:auto;" required>
-                              </div>
-
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                  <button type="submit" name="verificar" class="btn btn-primary">Verificar</button>
-                              </div>
-                              </form>
-
-                        </div>
-                      </div>
-                    </div>
-                    <?php
-                  }
-                 
-                ?>
- 
              </div>
           </body>
         </html>
               
           <?php
-              if(isset($_POST['verificar'])){
+                if (isset($_GET['id'])){
+                    ?>
+                    <!--Modal-->
+                    <div  tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="TituloModalCentralizado">Digite a senha de exclusão</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form name="cad" method="post" action="consultaMonitor.php?id=<?php echo $_GET['id']; ?>">
+                                    <div class="modal-body">
+                                        <input type="password" class="form-control" name="senha" style="width:60%;margin-left:auto;margin-right:auto;" required>
+                                    </div>
 
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" name="verificar" class="btn btn-primary">Verificar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+<?php
+                }
+              if(isset($_POST['verificar'])){
                 include 'util/validacao.class.php';
               
                 $erros = [];
@@ -220,7 +203,6 @@ ob_start();
                       $erros[] = '<h3 style="color:red; margin:1%;">Senha inválida *</h3>';
     
                   } //fecha if validar senha
-
                     if(count($erros) != 0){
                         die("Senha Inválida");
                         $_SESSION['erros'] = serialize($erros);
@@ -229,14 +211,11 @@ ob_start();
                         die(count($erros));
                                                           
                     }else{
-                        header("location:consultaMonitor.php?idMonitor={$monitor->getidMonitor()}");
-                        ob_enf_fluch();
                         $monitorDAO->deletarMonitor($_GET['id']);
                         unset($_GET['id']);
                         die("Excluido com Sucesso!");
                         
                         
-
                       }
               }
           ?>

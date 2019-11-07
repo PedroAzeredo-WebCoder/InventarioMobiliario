@@ -74,6 +74,7 @@ ob_start();
                   <label>Setor:</label>
                   <div class="box">
                         <select name="setor" class="form-control">
+                                <option value=""> </option>
                                 <option value="ADMINISTRAÇÃO RECEPÇÃO"<?php if(isset($micro)) if($micro->setor=='ADMINISTRAÇÃO RECEPÇÃO') echo 'selected=selected'; ?>>ADMINISTRAÇÃO RECEPÇÃO</option>
                                 <option value="ADMINISTRAÇÃO SIHO"<?php if(isset($micro)) if($micro->setor=='ADMINISTRAÇÃO SIHO') echo 'selected=selected'; ?>>ADMINISTRAÇÃO SIHO</option>
                                 <option value="ALMOXARIFADO"<?php if(isset($micro)) if($micro->setor=='ALMOXARIFADO') echo 'selected=selected'; ?>>ALMOXARIFADO</option>

@@ -6,16 +6,23 @@
     "authors": [
         {
             "name": "Pedro da Silveira Azeredo",
-            "email": "pedro.azeredo93@gmail.com"
+            "email": "pedro.azeredo93@gmail.com",
+            "role": "Developer"
         }
     ],
-    "require": {
-        "twbs/bootstrap": "^4.3"
+    "config": {
+        "vendor-dir": "vendor"
     },
     "autoload":{
         "psr-4":{
-            "InventarioMobiliario\\": "inventarioMobiliario/",
-            "Dao\\": "dao"
-        }
+            "Source\\": "source/"
+    },
+    "files":[
+        "source/Config.php"
+        ]
+    },
+    "require": {
+        "twbs/bootstrap": "^4.3"
     }
 }
+
