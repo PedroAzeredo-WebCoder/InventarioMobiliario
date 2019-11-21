@@ -6,18 +6,18 @@ class ConexaoBanco extends PDO
 
   public function __construct($databaseName, $user, $password)
   {
-      parent::__construct($databaseName, $user, $password);
+    parent::__construct($databaseName, $user, $password);
   }
 
   public static function getInstance()
   {
     try { //SINGLETON
-      if(!isset(self::$instance)) {
-        self::$instance = new ConexaoBanco("mysql:dbname=inventario;host=localhost","root","");
+      if (!isset(self::$instance)) {
+        self::$instance = new ConexaoBanco("mysql:dbname=inventario;host=localhost", "root", "");
       }
       return self::$instance;
-    } catch(PDOException $error) {
-      echo "Erro ao conectar! ".$error;
+    } catch (PDOException $error) {
+      echo "Erro ao conectar! " . $error;
     }
   }
 }

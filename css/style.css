@@ -1,13 +1,14 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Acme|Cinzel|Play|Roboto&display=swap');
 /* Geral */
-.back{
-    background-image: linear-gradient( to bottom, #1664ac 0%,#5ab3e2 50%,#FFFFFF 100%);
+
+.back {
+    background-image: linear-gradient( to bottom, #1664ac 0%, #5ab3e2 50%, #FFFFFF 100%);
     background-size: 100% 190%;
     background-repeat: no-repeat;
-  }
+}
 
-.cd{
+/*.cd{
     width: 65%;
     background-color:rgba(252, 245, 245, 1);
     border-radius: 10px;
@@ -16,13 +17,13 @@
     margin-right: auto;
     margin-top: 7%;
     margin-bottom:4%;
-  }
+  }*/
 
-hr{
+hr {
     color: rgba(20, 20, 20, 0.25);
 }
 
-.cadastrar{
+.cadastrar {
     width: 50%;
     background-color: green;
     border: none;
@@ -31,7 +32,8 @@ hr{
     font-size: 16px;
     line-height: 250%;
 }
-.limpar{
+
+.limpar {
     width: 50%;
     background-color: red;
     border: none;
@@ -39,8 +41,10 @@ hr{
     color: white;
     font-size: 16px;
     line-height: 250%;
+    
 }
-.alterar{
+
+.alterar {
     width: 100%;
     background-color: green;
     border: none;
@@ -49,13 +53,15 @@ hr{
     font-size: 16px;
     line-height: 250%;
 }
-.box{
+
+.box {
     float: right;
     margin-right: 10%;
     margin-top: 1%;
     width: 55%;
 }
-label{
+
+label {
     font-family: Cinzel;
     font-weight: bold;
     font-size: 18px;
@@ -63,74 +69,88 @@ label{
     margin: 10px;
     margin-left: 4%;
 }
-#tlb{
+
+#tlb {
+    
     margin-left: 35%;
     margin-top: -5%;
 }
-#title{
+
+#title {
     margin-bottom: 4%;
     text-align: center;
     font-family: Play;
-
 }
-.btns{
+
+.btns {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 6%;
 }
-.thad{
-    background-color:#48d965;
+
+.thad {
+    background-color: #48d965;
     font-size: 14px;
     text-align: center;
-    
 }
-.inf{
-    text-align: center;
 
+.inf {
+    text-align: center;
 }
-.erro{
+
+.erro {
     color: red;
 }
 
-#tam{
+#tam {
     width: 98%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.inform{
-  text-align:center;
-
+.inform {
+    text-align: center;
 }
 
-@keyframes animate
-{
-    0%
-    {
-        box-shadow: 0000 rgba(255,109,74,.7);
+@keyframes animate {
+    0% {
+        box-shadow: 0000 rgba(255, 109, 74, .7);
     }
-    40%
-    {
-        box-shadow: 0000 rgba(255,109,74,.7);
+    40% {
+        box-shadow: 0000 rgba(255, 109, 74, .7);
     }
-    80%
-    {
-        box-shadow: 0000 rgba(255,109,74,.7);
+    80% {
+        box-shadow: 0000 rgba(255, 109, 74, .7);
     }
-    100%
-    {
-        box-shadow: 0000 rgba(255,109,74,.7);
+    100% {
+        box-shadow: 0000 rgba(255, 109, 74, .7);
     }
-
 }
 
-@media screen and (max-width: 720px)
-{
-  .cd{
-    width:90%;
-  }
-    label{
-  	font-size:8px;
-  }
+@media screen and (max-width: 720px) {
+    .container {
+        width: 99%;
+    }
+    label {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 99%;
+    }
+    label {
+        font-size: 5px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container {
+        width: 99%;
+    }
+    label {
+        font-size: 10px;
+    }
 }

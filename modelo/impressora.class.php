@@ -15,26 +15,24 @@ class Impressora
     private $equityNumber;
 
     public function __construct()
-    {
-    }
+    { }
 
     public function __destruct()
-    {
-    }
+    { }
 
     public function __get($atributo)
-     {
+    {
         return $this->$atributo;
-     }
+    }
 
-     public function __set($atributo, $valor)
-      {
-          $this->$atributo = $valor;
-      }
+    public function __set($atributo, $valor)
+    {
+        $this->$atributo = $valor;
+    }
 
-     public function __toString()
-     {
-         return nl2br("ID: $this->idImpressora
+    public function __toString()
+    {
+        return nl2br("ID: $this->idImpressora
                        Setor: $this->setor
                        Nome da sala: $this->nameRoom
                        Nome da Impressora: $this->namePrinter
@@ -46,5 +44,5 @@ class Impressora
                        IP: $this->ip
                        Garantia: $this->warranty
                        Numero de Patrimônio: $this->equityNumber");
-       }
+    }
 } //fecha classe impressora

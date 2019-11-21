@@ -14,5 +14,4 @@ class Padronizacao
   {
     return ucwords(strtoupper($valor));
   }
-  
 }
