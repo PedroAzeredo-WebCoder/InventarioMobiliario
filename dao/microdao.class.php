@@ -50,7 +50,7 @@ class MicroDAO
   {
     try {
 
-      $statement = $this->conexao->query("SELECT * FROM micro");
+      $statement = $this->conexao->query("SELECT * FROM micro ORDER BY setor ASC");
       $array = $statement->fetchAll(PDO::FETCH_CLASS, 'Micro');
       return $array;
     } catch (PDOException $error) {

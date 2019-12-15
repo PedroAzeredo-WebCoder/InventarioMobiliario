@@ -41,7 +41,7 @@ class MonitorDAO
   {
     try {
 
-      $statement = $this->conexao->query("SELECT * FROM monitor");
+      $statement = $this->conexao->query("SELECT * FROM monitor ORDER BY setor ASC");
       $array = $statement->fetchAll(PDO::FETCH_CLASS, 'Monitor');
       return $array;
     } catch (PDOException $error) {
@@ -126,4 +126,4 @@ class MonitorDAO
 
   } //fecha método alterar
 
-}//fecha classe DAO
+} //fecha classe DAO

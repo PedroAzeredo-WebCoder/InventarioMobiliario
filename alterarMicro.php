@@ -12,29 +12,57 @@ ob_start();
     <link rel="shortcut icon" href="img/icon.ico" type="img/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="vendor/components/jquery/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
-    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="vendor/components/jquery/jquery.min.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')
+	</script>
+	<script src="/docs/4.0/assets/js/vendor/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+	<script src="/docs/4.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+	<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/docs/4.0/assets/js/docs.min.js"></script>
+	<script src="js/jquery.mask.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#memory").mask("00GB", {
+				reverse: true
+			})
+			$("#hd").mask("000GB", {
+				reverse: true
+			})
+			$("#mac").mask("SS-SS-SS-SS-SS-SS", {
+				translation: {
+					'S': {
+						pattern: /^[A-Za-z0-9]/
+					}
+				},
+				reverse: true
+			})
+			$("#ip").mask("00.00.00.999")
+		})
+	</script>
 </head>
 <!--Fecha Cabeçalho-->
 
 <body class="back">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.php">Inventário</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="index.php" id="nomeMenu" title="Voltar ao Início">Inventário</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="cadastroMicro.php">Cadastro</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="cadastroMonitor.php">Cadastrar</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="consultaMicro.php">Consulta</a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="consultaMonitor.php">Consultar <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+
         </div>
     </nav>
     <?php
@@ -48,7 +76,7 @@ ob_start();
         $micro = $array[0];
     }
     ?>
-    <div class="cd">
+     <div class="jumbotron jumbotron-fluid" style="width:88%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%; margin-bottom:1%;">
         <form name="cad" method="post" action="alterarMicro.php">
             <h1 id="title">Alterar Micro</h1>
 
@@ -65,7 +93,7 @@ ob_start();
             <div class="form-group">
                 <label>Número do computador:</label>
                 <div class="box">
-                    <input type="text" name="numberComputer" class="form-control" pattern="^[1-6]{1}$" style="width: 15%;" required autofocus value="<?php if (isset($micro)) echo $micro->numberComputer; ?>" required>
+                    <input type="text" name="numberComputer" class="form-control" pattern="^[1-6]{1}$" required autofocus value="<?php if (isset($micro)) echo $micro->numberComputer; ?>" required>
                 </div>
             </div>
 
@@ -200,7 +228,7 @@ ob_start();
             <div class="form-group">
                 <label>Memória:</label>
                 <div class="box">
-                    <input type="text" name="memory" class="form-control" value="<?php if (isset($micro)) echo $micro->memory; ?>" required>
+                    <input type="text" name="memory" id="memory" class="form-control" value="<?php if (isset($micro)) echo $micro->memory; ?>" required>
                 </div>
             </div>
 
@@ -209,7 +237,7 @@ ob_start();
             <div class="form-group">
                 <label>HD:</label>
                 <div class="box">
-                    <input type="text" name="hd" class="form-control" value="<?php if (isset($micro)) echo $micro->hd; ?>" required>
+                    <input type="text" name="hd" id="hd" class="form-control" value="<?php if (isset($micro)) echo $micro->hd; ?>" required>
                 </div>
             </div>
 
@@ -227,7 +255,7 @@ ob_start();
             <div class="form-group">
                 <label>MAC:</label>
                 <div class="box">
-                    <input type="text" name="mac" class="form-control" value="<?php if (isset($micro)) echo $micro->mac; ?>" required>
+                    <input type="text" name="mac" id="mac" class="form-control" value="<?php if (isset($micro)) echo $micro->mac; ?>" required>
                 </div>
             </div>
 
@@ -236,20 +264,26 @@ ob_start();
             <div class="form-group">
                 <label>IP:</label>
                 <div class="box">
-                    <input type="text" name="ip" class="form-control" value="<?php if (isset($micro)) echo $micro->ip; ?>" required>
+                    <input type="text" name="ip"  id="ip" class="form-control" value="<?php if (isset($micro)) echo $micro->ip; ?>" required>
                 </div>
             </div>
 
             <hr>
 
-            <div class="form-group">
-                <label>Garantia :</label>
-                <table id="tlb">
-                    <tr>
-                        <td><input type="radio" name="warranty" value="Sim" <?php if (isset($micro)) if ($micro->warranty == 'Sim') echo 'checked'; ?>><label>Sim</label></td>
-                        <td><input type="radio" name="warranty" value="Não" <?php if (isset($micro)) if ($micro->warranty == 'Não') echo 'checked'; ?>><label>Não</label></td>
-                    </tr>
-                </table>
+            <div class="form-row">
+                <div class="col">
+                    <label>Garantia :</label>
+                    <div class="sn garantia">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="warranty" value="Sim" <?php if (isset($micro)) if ($micro->warranty == 'Sim') echo 'checked'; ?>>
+                            <label class="custom-control-label form-check-inline" for="defaultUnchecked">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultChecked" name="warranty" value="Não" <?php if (isset($micro)) if ($micro->warranty == 'Não') echo 'checked'; ?>>
+                            <label class="custom-control-label  form-check-inline" for="defaultChecked">Não</label>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <hr>
@@ -257,7 +291,7 @@ ob_start();
             <div class="form-group">
                 <label>Número de Patrimônio:</label>
                 <div class="box">
-                    <input type="text" name="equityNumber" class="form-control" pattern="^[0-9]{5,6}$" value="<?php if (isset($micro)) echo $micro->equityNumber; ?>" required>
+                    <input type="text" name="equityNumber" class="form-control" pattern="^[0-9]{5,7}$" value="<?php if (isset($micro)) echo $micro->equityNumber; ?>" required>
                 </div>
             </div>
 

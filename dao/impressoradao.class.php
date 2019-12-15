@@ -43,7 +43,7 @@ class ImpressoraDAO
   {
     try {
 
-      $statement = $this->conexao->query("SELECT * FROM impressora");
+      $statement = $this->conexao->query("SELECT * FROM impressora ORDER BY setor ASC");
       $array = $statement->fetchAll(PDO::FETCH_CLASS, 'Impressora');
       return $array;
     } catch (PDOException $error) {
