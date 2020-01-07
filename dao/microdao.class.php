@@ -40,6 +40,13 @@ class MicroDAO
       $statement->bindValue(16, $micro->warranty);
       $statement->bindValue(17, $micro->equityNumber);
       $statement->execute();
+
+      $affected = $statement->rowCount();
+
+      if ($affected <= 0) {
+        throw new Exception("Nada foi inserido");
+      }
+
     } catch (PDOException $error) {
       echo "Erro ao cadastrar micro!" . $error;
     } //fecha catch

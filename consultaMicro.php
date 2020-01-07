@@ -61,7 +61,7 @@ ob_start();
     <h1 class="jumbotron" id="title" style="background-color: rgba(62, 206, 214, 0.01)">Consulta de Micros</h1>
 
     <div style="margin:1%;">
-      <button class="btn btn-success float-right" ><a style="color:black; text-decoration:none; font-size:18px;" href="cadastroMicro.php"><strong>✚</strong></a></button></div>
+      <button class="btn btn-success float-right"><a style="color:black; text-decoration:none; font-size:17px;" href="cadastroMicro.php"><strong>✚</strong></a></button>
   </div>
 
     <?php
@@ -84,15 +84,15 @@ ob_start();
 
         <div class="form-group col-md-6">
           <select name="selfiltro" class="form-control">
-            <option value="idMicro">Código</option>
-            <option value="numberComputer">Numero do Computador</option>
+            <option value="#">Selecione uma opção</option>
+            <option value="numberComputer">Número do Computador</option>
             <option value="setor">Setor</option>
             <option value="brand">Marca</option>
             <option value="model">Modelo</option>
             <option value="serie">Série</option>
             <option value="numberScore">Ponto Lógico</option>
             <option value="name">Nome do Computador</option>
-            <option value="mac">Mac</option>
+            <option value="mac">MAC</option>
             <option value="ip">IP</option>
             <option value="equityNumber">Número de Patrimônio</option>
           </select>

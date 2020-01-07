@@ -58,7 +58,7 @@ ob_start();
   }
   ?>
 
-<div class="jumbotron jumbotron-fluid" style="width:88%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%; margin-bottom:1%;">
+<div class="jumbotron jumbotron-fluid" style="width:90%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%;">
     <form name="cad" method="post" action="alterarMonitor.php">
       <h1 id="title">Alterar Monitor</h1>
 
@@ -73,7 +73,7 @@ ob_start();
       <div class="form-group">
         <label>Número do monitor:</label>
         <div class="box">
-          <input type="text" name="numberScreen" class="form-control" pattern="^[1-6]{1}$" required autofocus value="<?php if (isset($monitor)) echo $monitor->numberScreen; ?>">
+          <input type="text" name="numberScreen" class="form-control" pattern="^[1-6]{2}$" required autofocus value="<?php if (isset($monitor)) echo $monitor->numberScreen; ?>">
         </div>
       </div>
 
@@ -206,8 +206,8 @@ ob_start();
 
       <hr>
 
-      <div class="form-group">
-        <input type="submit" class="alterar" name="alterar" value="Alterar">
+      <div class="form-group" style="margin-bottom:-7%; margin-top:3%;">
+             <input type="submit" class="btn btn-warning btn-lg btn-block" name="alterar" value="Alterar">
       </div>
     </form>
     <!--fecha formulario-->
@@ -240,7 +240,7 @@ ob_start();
     if (count($erros) != 0) {
       $_SESSION['erros'] = serialize($erros);
       header("location:consultaMonitor.php");
-      ob_enf_fluch();
+      ob_end_flush();
       die();
     } //fecha if de erros
 
@@ -261,7 +261,7 @@ ob_start();
     $monitorDAO->alterarMonitor($monitor);
 
     header("location:consultaMonitor.php");
-    ob_enf_fluch();
+    ob_end_flush();
 
     unset($_POST['alterar']);
     unset($_GET['id']);

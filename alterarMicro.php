@@ -76,7 +76,7 @@ ob_start();
         $micro = $array[0];
     }
     ?>
-     <div class="jumbotron jumbotron-fluid" style="width:88%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%; margin-bottom:1%;">
+     <div class="jumbotron jumbotron-fluid" style="width:90%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%;">
         <form name="cad" method="post" action="alterarMicro.php">
             <h1 id="title">Alterar Micro</h1>
 
@@ -188,7 +188,7 @@ ob_start();
             <div class="form-group">
                 <label>Ponto Lógico:</label>
                 <div class="box">
-                    <input type="text" name="numberScore" class="form-control" style="width: 15%;" value="<?php if (isset($micro)) echo $micro->numberScore; ?>" required>
+                    <input type="text" name="numberScore" class="form-control" value="<?php if (isset($micro)) echo $micro->numberScore; ?>" required>
                 </div>
             </div>
 
@@ -297,9 +297,9 @@ ob_start();
 
             <hr>
 
-            <div class="form-group">
-                <input type="submit" class="alterar" name="alterar" value="Alterar">
-            </div>
+         <div class="form-group" style="margin-bottom:-7%; margin-top:3%;">
+             <input type="submit" class="btn btn-warning btn-lg btn-block" name="alterar" value="Alterar">
+         </div>
         </form>
     </div>
 

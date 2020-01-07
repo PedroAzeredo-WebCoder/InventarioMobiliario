@@ -61,8 +61,8 @@ ob_start();
   <div id="tam">
       <h1 class="jumbotron" id="title" style="background-color: rgba(62, 206, 214, 0.01)">Consulta de Impressoras</h1>
 
-    <div style="margin:1%;">
-      <button class="btn btn-success float-right"><a style="color:black; text-decoration:none; font-size:18px;" href="cadastroImpressora.php"><strong>✚</strong></a></button></div>
+  <div>
+      <button class="btn btn-success float-right"><a style="color:black; text-decoration:none; font-size:17px;" href="cadastroImpressora.php"><strong>✚</strong></a></button>
     </div>
 
     <?php
@@ -87,7 +87,7 @@ ob_start();
 
           <div class="form-group col-md-6">
             <select name="selfiltro" class="form-control">
-              <option value="idImpressora">Código</option>
+              <option value="#">Selecione uma opção</option>
               <option value="setor">Setor</option>
               <option value="namePrinter">Nome da Impressora</option>
               <option value="brand">Marca</option>
@@ -165,7 +165,6 @@ ob_start();
 
     foreach ($impressora as $impressora) {
       echo "<tr>";
-      echo "<td class='inform' style='font-weight:bold;'>$impressora->idImpressora</td>";
       echo "<td class='inform'>$impressora->setor</td>";
       echo "<td class='inform'>$impressora->nameRoom</td>";
       echo "<td class='inform'>$impressora->namePrinter</td>";

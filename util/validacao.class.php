@@ -15,13 +15,13 @@ class Validacao
 
   public static function validarEquityNumber($valor): bool
   {
-    $expressao = "/^[0-9]{5,6}$/";
+    $expressao = "/^[0-9]{5,7}$/";
     return preg_match($expressao, $valor);
   } //fecha validarnumeropatrimonio
 
   public static function validarNumberRoom($valor): bool
   {
-    $expressao = "/^[1-6]{1}$/";
+    $expressao = "/^[1-7]{1}$/";
     return preg_match($expressao, $valor);
   } //fecha validarNome da sala
   public static function validarOperationalSystem($valor): bool

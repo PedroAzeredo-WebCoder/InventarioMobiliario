@@ -17,22 +17,24 @@ class ImpressoraDAO
   {
     try {
 
-      $statement = $this->conexao->prepare(
-        "INSERT into impressora(idImpressora,setor,nameRoom,namePrinter,brand,model,serie,numberScore,patrimony,ip,warranty,equityNumber)
-             values(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-      );
-      $statement->bindValue(1, $impressora->setor);
-      $statement->bindValue(2, $impressora->nameRoom);
-      $statement->bindValue(3, $impressora->namePrinter);
-      $statement->bindValue(4, $impressora->brand);
-      $statement->bindValue(5, $impressora->model);
-      $statement->bindValue(6, $impressora->serie);
-      $statement->bindValue(7, $impressora->numberScore);
-      $statement->bindValue(8, $impressora->patrimony);
-      $statement->bindValue(9, $impressora->ip);
-      $statement->bindValue(10, $impressora->warranty);
-      $statement->bindValue(11, $impressora->equityNumber);
-      $statement->execute();
+        $statement = $this->conexao->prepare(
+          "INSERT into impressora(idImpressora,setor,nameRoom,namePrinter,brand,model,serie,numberScore,patrimony,ip,warranty,equityNumber)
+              values(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+        $statement->bindValue(1, $impressora->setor);
+        $statement->bindValue(2, $impressora->nameRoom);
+        $statement->bindValue(3, $impressora->namePrinter);
+        $statement->bindValue(4, $impressora->brand);
+        $statement->bindValue(5, $impressora->model);
+        $statement->bindValue(6, $impressora->serie);
+        $statement->bindValue(7, (!empty($impressora->numberScore)) ? $impressora->numberScore : null);
+        $statement->bindValue(8, $impressora->patrimony);
+        $statement->bindValue(9, (!empty($impressora->ip)) ? $impressora->ip : null);
+        $statement->bindValue(10, $impressora->warranty);
+        $statement->bindValue(11, $impressora->equityNumber);
+        return $statement->execute();
+
+       
     } catch (PDOException $error) {
       echo "Erro ao cadastrar impressora!" . $error;
     } //fecha catch

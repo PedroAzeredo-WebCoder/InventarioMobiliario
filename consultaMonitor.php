@@ -39,7 +39,7 @@ ob_start();
           background-repeat:no-repeat;
           background-size:100% 100%;
       }
-    </style>
+</style>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -63,9 +63,9 @@ ob_start();
   <div id="tam">
     <h1 class="jumbotron" id="title" style="background-color: rgba(62, 206, 214, 0.01)">Consulta de Monitores</h1>
 
-    <div style="margin:1%;">
-      <button class="btn btn-success float-right" ><a style="color:black; text-decoration:none; font-size:18px;" href="cadastroMonitor.php"><strong>✚</strong></a></button></div>
-  </div>
+    <div>
+      <button class="btn btn-success float-right"><a style="color:black; text-decoration:none; font-size:17px;" href="cadastroMonitor.php"><strong>✚</strong></a></button>
+    </div>
 
     <?php
     include 'dao/monitordao.class.php';
@@ -86,8 +86,8 @@ ob_start();
 
         <div class="form-group col-md-6">
           <select name="selfiltro" class="form-control">
-            <option value="idMonitor">Código</option>
-            <option value="numberScreen">Numero do Monitor</option>
+            <option value="#">Selecione uma opção</option>
+            <option value="numberScreen">Número do Monitor</option>
             <option value="setor">Setor</option>
             <option value="brand">Marca</option>
             <option value="serie">Série</option>
@@ -119,74 +119,71 @@ ob_start();
     ?>
 
     <?php
-    echo "<div class='table-responsive'>";
-    echo "<table class='table table-striped table-bordered table-hover table-condensed jumbotron'>";
-    echo "<thead class='thad'>";
+        echo "<div class='table-responsive'>";
+        echo "<table class='table table-striped table-bordered table-hover table-condensed jumbotron'>";
+        echo "<thead class='thad'>";
 
-    echo "<tr>";
+        echo "<tr>";
 
-    echo "<th>Nº do Monitor</th>";
-    echo "<th>Setor</th>";
-    echo "<th>Nome da sala</th>";
-    echo "<th>Marca</th>";
-    echo "<th>Modelo</th>";
-    echo "<th>Série</th>";
-    echo "<th>Patrimônio</th>";
-    echo "<th>Garantia</th>";
-    echo "<th>Nº de Patrimônio</th>";
-    echo "<th>Alterar</th>";
-    echo "<th>Excluir</th>";
-    
-    echo "</tr>";
+        echo "<th>Nº do Monitor</th>";
+        echo "<th>Setor</th>";
+        echo "<th>Nome da sala</th>";
+        echo "<th>Marca</th>";
+        echo "<th>Modelo</th>";
+        echo "<th>Série</th>";
+        echo "<th>Patrimônio</th>";
+        echo "<th>Garantia</th>";
+        echo "<th>Nº de Patrimônio</th>";
+        echo "<th>Alterar</th>";
+        echo "<th>Excluir</th>";
+        
+        echo "</tr>";
 
-    echo "</thead>";
-    echo "<tfoot class='thad'>";
+        echo "</thead>";
+        echo "<tfoot class='thad'>";
 
-    echo "<tr>";
+        echo "<tr>";
 
-    echo "<th>Nº do Monitor</th>";
-    echo "<th>Setor</th>";
-    echo "<th>Nome da sala</th>";
-    echo "<th>Marca</th>";
-    echo "<th>Modelo</th>";
-    echo "<th>Série</th>";
-    echo "<th>Patrimônio</th>";
-    echo "<th>Garantia</th>";
-    echo "<th>Nº de Patrimônio</th>";
-    echo "<th>Alterar</th>";
-    echo "<th>Excluir</th>";
+        echo "<th>Nº do Monitor</th>";
+        echo "<th>Setor</th>";
+        echo "<th>Nome da sala</th>";
+        echo "<th>Marca</th>";
+        echo "<th>Modelo</th>";
+        echo "<th>Série</th>";
+        echo "<th>Patrimônio</th>";
+        echo "<th>Garantia</th>";
+        echo "<th>Nº de Patrimônio</th>";
+        echo "<th>Alterar</th>";
+        echo "<th>Excluir</th>";
 
-    echo "</tr>";
+        echo "</tr>";
 
-    echo "</tfoot>";
-    echo "<tbody>";
+        echo "</tfoot>";
+        echo "<tbody>";
 
-    foreach ($monitor as $monitor) {
-      echo "<tr>";
-      echo "<td class='inform'>$monitor->numberScreen</td>";
-      echo "<td class='inform'>$monitor->setor</td>";
-      echo "<td class='inform'>$monitor->nameRoom</td>";
-      echo "<td class='inform'>$monitor->brand</td>";
-      echo "<td class='inform'>$monitor->model</td>";
-      echo "<td class='inform'>$monitor->serie</td>";
-      echo "<td class='inform'>$monitor->patrimony</td>";
-      echo "<td class='inform'>$monitor->warranty</td>";
-      echo "<td class='inform'>$monitor->equityNumber</td>";
-      echo "<td><a class='btn btn-warning'href='alterarMonitor.php?id={$monitor->idMonitor}'><strong>Alterar</strong></a></td>";
-      echo "<td><a class='btn btn-danger' href='consultaMonitor.php?id={$monitor->idMonitor}'><strong>✘</strong></a></td>";
-      echo "</tr>";
-    }
-    echo "</tbody>";
-    echo "</table>";
-    echo "</div>"; //table responsive
+        foreach ($monitor as $monitor) {
+          echo "<tr>";
+          echo "<td class='inform'>$monitor->numberScreen</td>";
+          echo "<td class='inform'>$monitor->setor</td>";
+          echo "<td class='inform'>$monitor->nameRoom</td>";
+          echo "<td class='inform'>$monitor->brand</td>";
+          echo "<td class='inform'>$monitor->model</td>";
+          echo "<td class='inform'>$monitor->serie</td>";
+          echo "<td class='inform'>$monitor->patrimony</td>";
+          echo "<td class='inform'>$monitor->warranty</td>";
+          echo "<td class='inform'>$monitor->equityNumber</td>";
+          echo "<td><a class='btn btn-warning'href='alterarMonitor.php?id={$monitor->idMonitor}'><strong>Alterar</strong></a></td>";
+          echo "<td><a class='btn btn-danger' href='consultaMonitor.php?id={$monitor->idMonitor}'><strong>✘</strong></a></td>";
+          echo "</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>"; //table responsive
     ?>
 
-    
-
-
     <?php
-    if (isset($_POST['id'])) {
-      ?>
+        if (isset($_POST['id'])) {
+    ?>
 
       <!--Modal-->
 

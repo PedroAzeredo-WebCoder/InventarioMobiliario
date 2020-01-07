@@ -32,7 +32,7 @@
 <body>
 	<div class="row">
 		<div class="col-sm-4">
-			<div class="card" style="width: 20rem; margin-top:30%;box-shadow: 5px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
+			<div class="card" style="width: 20rem; margin-top:35%;box-shadow: 5px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
 				<img src="img/micro.png" class="card-img-top" style="margin-left:auto; margin-right:auto;">
 				<div class="card-body">
 					<a href="cadastroMicro.php" class="btn btn-primary btn-block">Cadastrar Micro</a>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="card" style="width: 20rem; margin-top:30%;box-shadow: 5px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
+			<div class="card" style="width: 20rem; margin-top:35%;box-shadow: 5px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
 				<img src="img/monitor.png" class="card-img-top" style="margin-left:auto; margin-right:auto;">
 				<div class="card-body">
 					<a href="cadastroMonitor.php" class="btn btn-primary btn-block">Cadastrar Monitor</a>
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="card" style="width: 20rem; margin-top:30%;box-shadow: 4px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
+			<div class="card" style="width: 20rem; margin-top:35%;box-shadow: 4px 6px 6px 6px rgba(50, 50, 50, 0.72); margin-left:auto; margin-right:auto;">
 				<img src="img/imp.webp" class="card-img-top" style="margin-left:auto; margin-right:auto;">
 				<div class="card-body">
 					<a href="cadastroImpressora.php" class="btn btn-primary btn-block">Cadastrar Impressora</a>

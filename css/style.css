@@ -18,16 +18,6 @@ hr {
     font-weight: bold;
 }
 
-.alterar {
-    width: 100%;
-    background-color: green;
-    border: none;
-    border-radius: 0px 0px 5px 5px;
-    color: white;
-    font-size: 16px;
-    line-height: 250%;
-}
-
 label {
     font-family: Aref Ruqaa;
     font-size: 20px;
@@ -46,19 +36,15 @@ label {
     margin-right: 5%;
     width: 52%;
 }
-
-.sn {
-    float: right;
-    margin-right: 15%;
+.reset{
+    width:1%;
 }
-
+.submit{
+    width:5%;
+}
 .thad {
     background-color: #48d965;
     font-size: 14px;
-    text-align: center;
-}
-
-.inf {
     text-align: center;
 }
 
@@ -70,10 +56,6 @@ label {
     width: 98%;
     margin-left: auto;
     margin-right: auto;
-}
-
-.inform {
-    text-align: center;
 }
 
 @media screen and (max-width: 720px) {

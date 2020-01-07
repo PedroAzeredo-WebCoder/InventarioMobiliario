@@ -62,7 +62,7 @@ ob_start();
   }
   ?>
 
-<div class="jumbotron jumbotron-fluid" style="width:88%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%; margin-bottom:1%;">
+<div class="jumbotron jumbotron-fluid" style="width:90%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%;">
     <form name="cad" method="post" action="alterarImpressora.php">
       <h1 id="title">Alterar Impressora</h1>
 
@@ -118,9 +118,7 @@ ob_start();
             <option value="SERVIÇO SOCIAL" <?php if (isset($impressora)) if ($impressora->setor == 'SERVIÇO SOCIAL') echo 'selected=selected'; ?>>SERVIÇO SOCIAL</option>
             <option value="SERVIDORES" <?php if (isset($impressora)) if ($impressora->setor == 'SERVIDORES') echo 'selected=selected'; ?>>SERVIDORES</option>
             <option value="TRAUMATOLOGIA" <?php if (isset($impressora)) if ($impressora->setor == 'TRAUMATOLOGIA') echo 'selected=selected'; ?>>TRAUMATOLOGIA</option>
-
-
-          </select>
+         </select>
         </div>
       </div>
       <hr>
@@ -173,7 +171,7 @@ ob_start();
       <div class="form-group">
         <label>N° Ponto Lógico :</label>
         <div class="box">
-          <input type="text" name="numberScore" class="form-control" value="<?php if (isset($impressora)) echo $impressora->numberScore; ?>" required>
+          <input type="text" name="numberScore" class="form-control" value="<?php if (isset($impressora)) echo $impressora->numberScore; ?>" >
         </div>
       </div>
 
@@ -195,7 +193,7 @@ ob_start();
       <div class="form-group">
         <label>IP :</label>
         <div class="box">
-          <input type="text" name="ip" id="ip" class="form-control" value="<?php if (isset($impressora)) echo $impressora->ip; ?>" required>
+          <input type="text" name="ip" id="ip" class="form-control" value="<?php if (isset($impressora)) echo $impressora->ip; ?>" >
         </div>
       </div>
 
@@ -228,8 +226,8 @@ ob_start();
 
       <hr>
 
-      <div class="form-group">
-        <input type="submit" class="alterar" name="alterar" value="Alterar">
+      <div class="form-group" style="margin-bottom:-7%; margin-top:3%;">
+        <input type="submit" class="btn btn-warning btn-lg btn-block" name="alterar" value="Alterar">
       </div>
     </form>
     <!--fecha formulario-->
