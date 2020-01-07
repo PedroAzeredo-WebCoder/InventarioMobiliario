@@ -248,11 +248,18 @@ ob_start();
     if (!Validacao::validarEquityNumber($_POST['equityNumber'])) {
       $erros[] = '<h3 style="color:red;">Marca inválida *</h3>';
     } //fecha if validar numero de patrimonio
+X 
 
 
-    if (count($erros) != 0) {
-      $_SESSION['erros'] = serialize($erros);
-      header("location:cadastroImpressora.php");
+
+
+
+
+
+
+
+
+
       ob_end_flush();
       die();
     } //fecha if de erros
