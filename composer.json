@@ -1,0 +1,28 @@
+{
+    "name": "pedro_azeredo/inventarioMobiliario.php",
+    "type": "dev",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pedro da Silveira Azeredo",
+            "email": "pedro.azeredo93@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload":{
+        "psr-4":{
+            "Source\\": "source/"
+    },
+    "files":[
+        "source/Config.php"
+        ]
+    },
+    "require": {
+        "twbs/bootstrap": "^4.3"
+    }
+}
+
