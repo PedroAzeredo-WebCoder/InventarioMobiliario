@@ -30,14 +30,9 @@ class MonitorDAO
       $statement->bindValue(7, $monitor->patrimony);
       $statement->bindValue(8, $monitor->warranty);
       $statement->bindValue(9, $monitor->equityNumber);
-      $statement->execute();
+      return $statement->execute();
 
-      $affected = $statement->rowCount();
-
-      if ($affected <= 0) {
-        throw new Exception("Nada foi inserido");
-      }
-
+     
     } catch (PDOException $error) {
       echo "Erro ao cadastrar monitor!" . $error;
     } //fecha catch

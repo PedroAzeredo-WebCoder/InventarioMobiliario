@@ -318,12 +318,12 @@ ob_start();
 					$erros[] = "<script>window.alert('Patrimônio Inválido, tente novamente');</script>";
 				} //fecha if validar numero partrimonio
 
-				if (count($erros) != 0) {
-					$_SESSION['erros'] = serialize($erros);
-					header("location:cadastroMicro.php");
-					ob_end_flush();
-					die();
-				} //fecha if de erros
+				// if (count($erros) != 0) {
+				// 	$_SESSION['erros'] = serialize($erros);
+				// 	header("location:cadastroMicro.php");
+				// 	ob_end_flush();
+				// 	die();
+				// } //fecha if de erros
 
 				$micro = new Micro();
 				$micro->numberComputer = $_POST['numberComputer'];

@@ -180,62 +180,16 @@ ob_start();
         echo "</table>";
         echo "</div>"; //table responsive
     ?>
-
-    <?php
-        if (isset($_POST['id'])) {
-    ?>
-
-      <!--Modal-->
-
-      <div role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="TituloModalCentralizado">Digite a senha de exclusão</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <form name="cad" method="post" action="consultaMonitor.php?id=<?php echo $_POST['id']; ?>">
-
-              <div class="modal-body">
-                <input type="password" class="form-control" name="senha" style="width:60%;margin-left:auto;margin-right:auto;" required>
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" name="verificar" class="btn btn-primary">Verificar</button>
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-
-    <?php
-    }
-    if (isset($_POST['verificar'])) {
-      include 'util/validacao.class.php';
-
-      $erros = [];
-      if (!Validacao::validarPassword($_POST['senha'])) {
-        $erros[] = '<h3 style="color:red; margin:1%;">Senha inválida *</h3>';
-      } //fecha if validar senha
-      if (count($erros) != 0) {
-        die("Senha Inválida");
-        $_SESSION['erros'] = serialize($erros);
-        header("location:consultaMonitor.php");
-        ob_end_flush();
-        die(count($erros));
-      } else {
-        $monitorDAO->deletarMonitor($_POST['id']);
-        unset($_POST['id']);
-        die("Excluido com Sucesso!");
-      }
-    }
-    ?>
-
   </div>
 </body>
+<?php
+  //excluir
+  if (isset($_GET['id'])) {
+    $monitorDAO->deletarMonitor($_GET['id']);
+    unset($_GET['id']);
+    header("location:consultaMonitor.php");
+    ob_end_flush();
+  }
+  ?>
 
 </html>

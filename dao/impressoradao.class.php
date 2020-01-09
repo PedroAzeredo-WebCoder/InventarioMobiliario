@@ -16,6 +16,8 @@ class ImpressoraDAO
   public function cadastrarImpressora($impressora)
   {
     try {
+      $numberScore = $impressora->numberScore;
+      $ip = $impressora->ip;
 
         $statement = $this->conexao->prepare(
           "INSERT into impressora(idImpressora,setor,nameRoom,namePrinter,brand,model,serie,numberScore,patrimony,ip,warranty,equityNumber)
@@ -27,9 +29,9 @@ class ImpressoraDAO
         $statement->bindValue(4, $impressora->brand);
         $statement->bindValue(5, $impressora->model);
         $statement->bindValue(6, $impressora->serie);
-        $statement->bindValue(7, (!empty($impressora->numberScore)) ? $impressora->numberScore : null);
+        $statement->bindValue(7, (! empty($numberScore) ? $numberScore : null));
         $statement->bindValue(8, $impressora->patrimony);
-        $statement->bindValue(9, (!empty($impressora->ip)) ? $impressora->ip : null);
+        $statement->bindValue(9, (! empty($ip) ? $ip : null));
         $statement->bindValue(10, $impressora->warranty);
         $statement->bindValue(11, $impressora->equityNumber);
         return $statement->execute();

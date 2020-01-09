@@ -63,7 +63,7 @@
         unset($_SESSION['erros']);
       }
       ?>
-
+ 
             <div class="jumbotron jumbotron-fluid" style="width:90%; background-color:rgba(252, 245, 245, 1); border-radius: 10px; box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77); margin-left: auto; margin-right: auto; margin-top: 7%;">
 
                 <form name="cad" method="post" action="cadastroMonitor.php">
@@ -224,7 +224,7 @@
               include 'util/padronizacao.class.php';
 
               $erros = [];
-				if (!Validacao::validarNumberRoom($_POST['numberComputer'])) {
+				if (!Validacao::validarNumberRoom($_POST['numberScreen'])) {
 					$erros[] = "<script>window.alert('Número Inválido, tente novamente');</script>";
 				} //fecha if validar numero do equipamento
 
@@ -239,26 +239,27 @@
 					$erros[] = "<script>window.alert('Patrimônio Inválido, tente novamente');</script>";
                 } //fecha if validar numero partrimonio
                 
-              if (count($erros) != 0) {
-                $_SESSION['erros'] = serialize($erros);
-                header("location:cadastroMonitor.php");
-                ob_end_flush();
-                die();
-              } //fecha if de erros
+            //   if (count($erros) != 0) {
+            //     $_SESSION['erros'] = serialize($erros);
+            //     header("location:cadastroMonitor.php");
+            //     ob_end_flush();
+            //     die();
+            //   } //fecha if de erros
 
+            
               $monitor = new Monitor();
               $monitor->numberScreen = $_POST['numberScreen'];
               $monitor->setor = $_POST['setor'];
-              $monitor->nameRoom = Padronizacao::padronizarNome($_POST['nameRoom']) ?? 'error';
-              $monitor->brand = Padronizacao::padronizarNome($_POST['brand']) ?? 'error';
-              $monitor->model = Padronizacao::padronizarSerie($_POST['model']) ?? 'error';
-              $monitor->serie = Padronizacao::padronizarSerie($_POST['serie']) ?? 'error';
+              $monitor->nameRoom = Padronizacao::padronizarNome($_POST['nameRoom']);
+              $monitor->brand = Padronizacao::padronizarNome($_POST['brand']);
+              $monitor->model = Padronizacao::padronizarSerie($_POST['model']);
+              $monitor->serie = Padronizacao::padronizarSerie($_POST['serie']);
               $monitor->patrimony = $_POST['patrimony'];
               $monitor->warranty = $_POST['warranty'];
               $monitor->equityNumber = $_POST['equityNumber'];
 
               $monitorDAO = new MonitorDAO();
-              $save = $monitorDAO->cadastrarMonitor($$monitor);
+              $save = $monitorDAO->cadastrarMonitor($monitor);
 
               if ($save){
                   echo "<script>window.alert('Cadastrado com sucesso');</script>";
@@ -267,7 +268,7 @@
 
               }else{
                   echo "<script>window.alert('Equipamento não cadastrado, verifique as informações e tente novamente');</script>";
-                  header("location:cadastoMonitor.php");
+                  header("location:cadastroMonitor.php");
                   ob_end_flush();
 
             } //fecha if

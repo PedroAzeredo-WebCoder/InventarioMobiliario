@@ -256,8 +256,7 @@ ob_start();
                 header("location:cadastroMicro.php");
                 die();
               } //fecha if de erros */
-printr_r($_POST);
-die();
+
               $impressora = new Impressora();
               $impressora->setor = $_POST['setor'];
               $impressora->nameRoom = Padronizacao::padronizarNome($_POST['nameRoom']);
@@ -273,7 +272,7 @@ die();
 
               $impressoraDAO = new ImpressoraDAO();
               $save = $impressoraDAO->cadastrarImpressora($impressora);
-
+ 
               if ($save) {
                   echo "<script>window.alert('Cadastrado com sucesso');</script>";
                   header("location:consultaImpressora.php");

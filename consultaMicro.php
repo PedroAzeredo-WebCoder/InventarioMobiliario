@@ -191,8 +191,8 @@ ob_start();
       echo "<td class='inform'>$micro->ip</td>";
       echo "<td class='inform'>$micro->warranty</td>";
       echo "<td class='inform'>$micro->equityNumber</td>";
-      echo "<td><a class='btn btn-warning' href='alterarMicro.php?id={$micro->idMicro}'>Alterar</a></td>";
-      echo "<td><a class='btn btn-danger' href='consultaMicro.php?id={$micro->idMicro}'>Excluir</a></td>";
+      echo "<td><a class='btn btn-warning' href='alterarMicro.php?id={$micro->idMicro}'><strong>Alterar</strong></a></td>";
+      echo "<td><a class='btn btn-danger' href='consultaMicro.php?id={$micro->idMicro}'><strong>✘</strong></a></td>";
       echo "</tr>";
     }
     echo "</tbody>";
@@ -201,9 +201,6 @@ ob_start();
     ?>
    
 </body>
-
-</html>
-
 <?php
 //excluir
 if (isset($_GET['id'])) {
@@ -215,3 +212,5 @@ if (isset($_GET['id'])) {
 }
 
 ?>
+</html>
+

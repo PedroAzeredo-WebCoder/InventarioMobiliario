@@ -73,7 +73,7 @@ ob_start();
       <div class="form-group">
         <label>Número do monitor:</label>
         <div class="box">
-          <input type="text" name="numberScreen" class="form-control" pattern="^[1-6]{2}$" required autofocus value="<?php if (isset($monitor)) echo $monitor->numberScreen; ?>">
+          <input type="text" name="numberScreen" class="form-control" pattern="^[1-6]{1,2}$" required autofocus value="<?php if (isset($monitor)) echo $monitor->numberScreen; ?>">
         </div>
       </div>
 

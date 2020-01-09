@@ -49,10 +49,10 @@ ob_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="cadastroMonitor.php">Cadastrar</a>
+            <a class="nav-link" href="cadastroImpressora.php">Cadastrar</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="consultaMonitor.php">Consultar <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="consultaImpressora.php">Consultar <span class="sr-only">(current)</span></a>
           </li>
       </ul>
     </div>
@@ -176,19 +176,16 @@ ob_start();
       echo "<td class='inform'>$impressora->ip</td>";
       echo "<td class='inform'>$impressora->warranty</td>";
       echo "<td class='inform'>$impressora->equityNumber</td>";
-      echo "<td><a class='btn btn-warning' href='alterarImpressora.php?id={$impressora->idImpressora}'>Alterar</a></td>";
-      echo "<td><a class='btn btn-danger' href='consultaImpressora.php?id={$impressora->idImpressora}'>Excluir</a></td>";
+      echo "<td><a class='btn btn-warning' href='alterarImpressora.php?id={$impressora->idImpressora}'><strong>Alterar</strong></a></td>";
+      echo "<td><a class='btn btn-danger' href='consultaImpressora.php?id={$impressora->idImpressora}'><strong>✘</strong></a></td>";
       echo "</tr>";
     }
     echo "</tbody>";
     echo "</table>";
     echo "</div>"; //table responsive
     ?>
-    
+  </div>
 </body>
-
-</html>
-
 <?php
 //excluir
 if (isset($_GET['id'])) {
@@ -198,3 +195,5 @@ if (isset($_GET['id'])) {
   ob_end_flush();
 }
 ?>
+</html>
+
