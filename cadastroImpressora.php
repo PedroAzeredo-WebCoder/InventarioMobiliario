@@ -231,6 +231,7 @@ ob_start();
                 <!-- fecha formulario-->
             </div>
 
+<<<<<<< HEAD
         <?php
             if (isset($_POST['cadastrar'])) {
               include 'modelo/impressora.class.php';
@@ -290,3 +291,5 @@ ob_start();
     </body>
 
     </html>
+
+
